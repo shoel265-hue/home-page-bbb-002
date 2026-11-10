@@ -182,54 +182,8 @@
             <div class="sidebar-menu">
                 <div class="menu-category">업무 관리</div>
                 
-                <!-- 🔑 1. 업무일지 (숨김 처리 - 부활시 주석 해제)
-                <div class="menu-item" onclick="toggleSubMenu('worklog-sub', this)">
-                    <div class="menu-item-left">
-                        <span class="icon">📋</span> <span>1. 업무일지</span>
-                    </div>
-                    <span class="arrow" id="arrow-worklog">▼</span>
-                </div>
-                <div class="sub-menu" id="worklog-sub">
-                    <a class="sub-item" onclick="checkWorkLogAccess('geonchuk', 'https://shoel265-hue.github.io/g-work-log/', '건축 일일업무일지', this)">건축 일일업무일지</a>
-                    <a class="sub-item" onclick="checkWorkLogAccess('refrig', 'https://shoel265-hue.github.io/n-work-log/', '냉동 일일업무일지', this)">냉동 일일업무일지</a>
-                    <a class="sub-item" onclick="checkWorkLogAccess('mihwa', 'https://shoel265-hue.github.io/m-work-log/', '미화 일일업무일지', this)">미화 일일업무일지</a>
-                    <a class="sub-item" onclick="checkWorkLogAccess('seolbi', 'https://shoel265-hue.github.io/s-work-log/', '설비 일일업무일지', this)">설비 일일업무일지</a>
-                    <a class="sub-item" onclick="checkWorkLogAccess('sobang', 'https://shoel265-hue.github.io/sb-work-log/', '소방 일일업무일지', this)">소방 일일업무일지</a>
-                    <a class="sub-item" onclick="checkWorkLogAccess('unsong', 'https://shoel265-hue.github.io/u-work-log/', '운송 일일업무일지', this)">운송 일일업무일지</a>
-                    <a class="sub-item" onclick="checkWorkLogAccess('report', 'https://shoel265-hue.github.io/day-work-log/', '일일 근무 보고서', this)">일일 근무 보고서</a>
-                    <a class="sub-item" onclick="checkWorkLogAccess('jeongi', 'https://shoel265-hue.github.io/e-work-log/', '전기 일일업무일지', this)">전기 일일업무일지</a>
-                    <a class="sub-item" onclick="checkWorkLogAccess('jumgeom', 'https://shoel265-hue.github.io/gg-work-log/', '점검 일일업무일지', this)">점검 일일업무일지</a>
-                    <a class="sub-item" onclick="checkWorkLogAccess('haengjeong', 'https://shoel265-hue.github.io/haengjeong-work-log/', '행정 일일업무일지', this)">행정 일일업무일지</a>
-                    <a class="sub-item" onclick="checkWorkLogAccess('ipjusa_mihwa', 'https://shoel265-hue.github.io/ipjusa-mihwa-work-log/', '입주사미화 일일업무일지', this)">입주사미화 일일업무일지</a>
-                </div>
-                -->
-
-                <!-- 🔑 2. 자재관리대장 (숨김 처리 - 부활시 주석 해제)
-                <a class="menu-item" onclick="loadSharedContent('https://shoel265-hue.github.io/material-management-syste/', '2. 자재관리대장', this)">
-                    <div class="menu-item-left"><span class="icon">📦</span> <span>2. 자재관리대장</span></div>
-                </a>
-                -->
-
-                <!-- 🔑 3. 공기구관리대장 (숨김 처리 - 부활시 주석 해제)
-                <a class="menu-item" onclick="loadSharedContent('https://shoel265-hue.github.io/tool-management-system/', '3. 공기구관리대장', this)">
-                    <div class="menu-item-left"><span class="icon">🔧</span> <span>3. 공기구관리대장</span></div>
-                </a>
-                -->
-
-                <!-- 🔑 4. 위험성평가 (숨김 처리 - 부활시 주석 해제)
-                <a class="menu-item" onclick="checkRiskAccess('https://shoel265-hue.github.io/team-risk-assessment/', '4. 위험성평가', this)">
-                    <div class="menu-item-left"><span class="icon">⚠️</span> <span>4. 위험성평가</span></div>
-                </a>
-                -->
-
-                <!-- 🔑 5. 근골격계부담작업 평가 (숨김 처리 - 부활시 주석 해제)
-                <a class="menu-item" id="menu-msd" onclick="checkMsdAccess(MSD_URL, '5. 근골격계부담작업 평가 ', this)">
-                    <div class="menu-item-left"><span class="icon">🦴</span> <span>5. 근골격계부담작업 평가 </span></div>
-                </a>
-                -->
-
-                <!-- 🔑 연차관리대장 (수정된 올바른 최신 깃허브 주소 연결) -->
-                <a class="menu-item active" onclick="loadLeaveContent('https://shoel265-hue.github.io/annual333-leave-management/', '연차관리대장', this)">
+                <!-- 🔑 연차관리대장 (수정된 저장소 이름: annual-leave-002-management 반영) -->
+                <a class="menu-item active" onclick="loadLeaveContent('https://shoel265-hue.github.io/annual-leave-002-management/', '연차관리대장', this)">
                     <div class="menu-item-left"><span class="icon">📅</span> <span>연차관리대장</span></div>
                 </a>
 
@@ -296,8 +250,6 @@
 
     <!-- ================= 3. 스크립트 기능 ================= -->
     <script>
-        const MSD_URL = 'https://shoel265-hue.github.io/-risk/';
-
         let adminId = localStorage.getItem('portal_admin_id') || "admin";
         let adminPw = localStorage.getItem('portal_admin_pw') || "8888";
 
@@ -404,11 +356,12 @@
             }
         });
 
-        // 💡 연차관리대장 연동: 최고관리자는 전체(총괄 관리자), 팀 계정은 해당 팀 (포털의 '행정' 계정 = 연차관리대장의 '관리' 팀)
+        // 💡 연차관리대장 연동
         function loadLeaveContent(baseUrl, titleText, element) {
-            let finalUrl = baseUrl;
+            let cleanUrl = baseUrl.endsWith('/') ? baseUrl.slice(0, -1) : baseUrl;
+            let finalUrl = cleanUrl + '/index.html';
+            
             if (currentLoginUser) {
-                let separator = baseUrl.includes('?') ? '&' : '?';
                 let teamName;
                 if (currentLoginUser.type === "admin") {
                     teamName = '전체 (총괄 관리자)';
@@ -416,7 +369,7 @@
                     teamName = (currentLoginUser.teamName === '행정') ? '관리' : currentLoginUser.teamName;
                 }
                 if (teamName) {
-                    finalUrl += separator + 'team=' + encodeURIComponent(teamName) + '&dept=' + encodeURIComponent(teamName);
+                    finalUrl += '?team=' + encodeURIComponent(teamName) + '&dept=' + encodeURIComponent(teamName);
                 }
             }
             loadContent(finalUrl, titleText, element);
